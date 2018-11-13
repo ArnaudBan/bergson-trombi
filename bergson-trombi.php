@@ -32,9 +32,29 @@ function btrom_register_post_type(){
 				'set_featured_image'    => 'Ajouter un portrait',
 				'remove_featured_image' => 'Supprimer le portrait',
 			),
-			'public'        => true,
-			'has_archive'   => 'trombinoscope-parents-elus',
+			'public'        => false,
+			'show_ui'       => true,
 			'menu_icon'     => 'dashicons-businessman',
 			'supports'      => array( 'title', 'editor', 'revisions', 'thumbnail')
 		));
+
+	register_taxonomy( 'year', 'elected_parent', array(
+		'labels'    => array(
+			'name'          => 'Années',
+			'singular_name' => 'Année',
+			'search_items'  => 'Rechercher une année',
+			'all_items'     => 'Toutes les années',
+			'parent_item'   => 'Année parent',
+			'parent_item_colon' => 'Année parent:',
+			'edit_item'     => 'Modifier l‘Année',
+			'view_item'     => 'Voir l‘année',
+			'update_item'   => 'Mettre à jours l‘année',
+			'add_new_item'  => 'Ajouter une année',
+			'new_item_name' => 'Nouveau nom d‘année',
+		),
+		'hierarchical'  => true,
+		'public'        => false,
+		'show_ui'       => true,
+		'show_admin_column'   => true
+	));
 }
