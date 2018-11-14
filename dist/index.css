@@ -1,0 +1,27 @@
+.elected-parent-wrapper {
+  text-align: center;
+}
+.elected-parent-wrapper .entry-title {
+  margin: 0.5em 0 1.5em;
+  font-size: 1em;
+}
+@media (min-width: 31.25em) {
+  .elected-parent-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .elected-parent-wrapper .elected_parent {
+    flex-basis: 48%;
+  }
+}
+@media (min-width: 56.25em) {
+  .elected-parent-wrapper .elected_parent {
+    flex-basis: 32%;
+  }
+}
+@media (min-width: 75em) {
+  .elected-parent-wrapper .elected_parent {
+    flex-basis: 24%;
+  }
+}

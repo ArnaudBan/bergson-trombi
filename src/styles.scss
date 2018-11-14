@@ -1,0 +1,29 @@
+.elected-parent-wrapper{
+  text-align: center;
+
+  .entry-title{
+    margin: 0.5em 0 1.5em;
+    font-size: 1em;
+  }
+  
+  @media ( min-width: 500 / 16 + 0em) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .elected_parent{
+      flex-basis: 48%;
+    }
+  }
+  @media ( min-width: 900 / 16 + 0em) {
+    .elected_parent{
+      flex-basis: 32%;
+    }
+  }
+
+  @media ( min-width: 1200 / 16 + 0em) {
+    .elected_parent{
+      flex-basis: 24%;
+    }
+  }
+}

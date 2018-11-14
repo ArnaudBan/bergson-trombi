@@ -57,4 +57,49 @@ function btrom_register_post_type(){
 		'show_ui'       => true,
 		'show_admin_column'   => true
 	));
+
+	wp_register_script(
+		'bergson-trombi-block',
+		plugins_url( 'dist/index.js', __FILE__ ),
+		array( 'wp-element' )
+	);
+
+	wp_register_style(
+		'bergson-trombi-style',
+		plugins_url( 'dist/index.css', __FILE__ ),
+		array()
+	);
+
+	register_block_type( 'bergson/trombi', array(
+		'editor_script'     => 'bergson-trombi-block',
+		'render_callback'   => 'bergson_trombi_render_block',
+		'editor_style'      => 'bergson-trombi-style',
+		'style'             => 'bergson-trombi-style',
+	) );
+}
+
+
+function bergson_trombi_render_block( $args ){
+
+	$parents_query = new WP_Query( array(
+		'post_type'         => 'elected_parent',
+		'posts_per_page'    => 20,
+		'no_found_rows'     => true
+	));
+
+	$response = '';
+	if( $parents_query->have_posts() ){
+
+		$response .= '<div class="elected-parent-wrapper">';
+		ob_start();
+		while ($parents_query->have_posts() ){
+			$parents_query->the_post();
+
+			include 'templates/trombi.php';
+		}
+		$response .= ob_get_clean();
+		$response .= '</div>';
+	}
+
+	return $response;
 }
