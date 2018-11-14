@@ -70,12 +70,15 @@ function btrom_register_post_type(){
 		array()
 	);
 
-	register_block_type( 'bergson/trombi', array(
-		'editor_script'     => 'bergson-trombi-block',
-		'render_callback'   => 'bergson_trombi_render_block',
-		'editor_style'      => 'bergson-trombi-style',
-		'style'             => 'bergson-trombi-style',
-	) );
+	if( function_exists( 'register_block_type' ) ){
+
+		register_block_type( 'bergson/trombi', array(
+			'editor_script'     => 'bergson-trombi-block',
+			'render_callback'   => 'bergson_trombi_render_block',
+			'editor_style'      => 'bergson-trombi-style',
+			'style'             => 'bergson-trombi-style',
+		) );
+	}
 }
 
 
